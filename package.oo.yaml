@@ -11,6 +11,7 @@ scripts:
 dependencies:
   {}
 icon: ./icon.png
-name: latex-ransformer
+name: latex-transformer
 description: Parse & calculate formular use latex
 displayName: Latex Transformer
+repository: https://github.com/a1528zhang/oomol-latex-transformer
