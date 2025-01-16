@@ -1,0 +1,98 @@
+nodes:
+  - task: self::latex-to-image
+    node_id: latex-to-image#1
+    inputs_from:
+      - handle: latex
+        value: \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} \equiv
+          1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+          {1+\frac{e^{-8\pi}} {1+\cdots} } } }
+        from_node:
+          - node_id: image-to-latex#1
+            output_handle: latexString
+    description: output as svg image
+  - task: self::image-to-latex
+    title: "Image To Latex #1"
+    node_id: image-to-latex#1
+    inputs_from:
+      - handle: input
+        value: /oomol-driver/oomol-storage/formular.png
+        from_node:
+          - node_id: +javascript#1
+            output_handle: filePath
+  - task:
+      ui:
+        default_width: 450
+      inputs_def:
+        - handle: inputImage
+          description: Input
+          json_schema:
+            type: string
+            ui:widget: file
+      outputs_def:
+        - handle: filePath
+          description: Output
+          json_schema:
+            type: string
+      executor:
+        name: nodejs
+        options:
+          entry: scriptlets/+javascript#1.js
+    title: Preview input image
+    icon: ":skill-icons:javascript:"
+    node_id: +javascript#1
+    inputs_from:
+      - handle: inputImage
+        value: /oomol-driver/oomol-storage/f5.png
+  - task: self::latex-to-expression
+    title: "Latex To Expression #1"
+    node_id: latex-to-expression#1
+    inputs_from:
+      - handle: latexString
+        from_node:
+          - node_id: image-to-latex#1
+            output_handle: latexString
+  - task: self::calculate-expression
+    title: "Calculate Expression #1"
+    node_id: calculate-expression#1
+    inputs_from:
+      - handle: expression
+        from_node:
+          - node_id: latex-to-expression#1
+            output_handle: expression
+      - handle: operation
+        value: derivatives
+      - handle: params
+        value:
+          - x
+  - task: self::expression-to-latex
+    title: "Expression To Latex #1"
+    node_id: expression-to-latex#1
+    inputs_from:
+      - handle: expression
+        from_node:
+          - node_id: latex-to-expression#1
+            output_handle: expression
+  - task: self::latex-to-image
+    title: "Latex To Image #2"
+    node_id: latex-to-image#2
+    inputs_from:
+      - handle: latex
+        from_node:
+          - node_id: expression-to-latex#1
+            output_handle: latexString
+  - task: self::expression-to-latex
+    title: "Expression To Latex #2"
+    node_id: expression-to-latex#2
+    inputs_from:
+      - handle: expression
+        from_node:
+          - node_id: calculate-expression#1
+            output_handle: expression
+  - task: self::latex-to-image
+    title: "Latex To Image #3"
+    node_id: latex-to-image#3
+    inputs_from:
+      - handle: latex
+        from_node:
+          - node_id: expression-to-latex#2
+            output_handle: latexString

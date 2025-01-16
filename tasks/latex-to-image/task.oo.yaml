@@ -1,0 +1,15 @@
+executor:
+  name: nodejs
+  options:
+    entry: main.js
+inputs_def:
+  - handle: latex
+    json_schema:
+      type: string
+outputs_def:
+  - handle: svgString
+    json_schema:
+      type: string
+icon: ":fa6-solid:image:"
+title: Latex To Image
+description: output in svg, download preview and save as svg get the pic.

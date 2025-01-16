@@ -1,0 +1,31 @@
+executor:
+  name: python
+  options:
+    entry: __init__.py
+inputs_def:
+  - handle: expression
+    json_schema:
+      contentMediaType: oomol/var
+  - handle: operation
+    json_schema:
+      enum:
+        - derivatives
+        - integral
+      ui:options:
+        labels:
+          - derivatives
+          - integral
+    value: derivatives
+  - handle: params
+    json_schema:
+      type: array
+      items:
+        {}
+    value:
+      []
+outputs_def:
+  - handle: expression
+    json_schema:
+      contentMediaType: oomol/var
+title: Calculate Expression
+icon: ":fa6-solid:calculator:"

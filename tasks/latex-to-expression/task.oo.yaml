@@ -1,0 +1,14 @@
+executor:
+  name: python
+  options:
+    entry: __init__.py
+inputs_def:
+  - handle: latexString
+    json_schema:
+      type: string
+outputs_def:
+  - handle: expression
+    json_schema:
+      contentMediaType: oomol/var
+icon: ":fa6-solid:florin-sign:"
+title: Latex To Expression

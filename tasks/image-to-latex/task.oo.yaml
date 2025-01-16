@@ -1,0 +1,15 @@
+executor:
+  name: python
+  options:
+    entry: __init__.py
+inputs_def:
+  - handle: input
+    json_schema:
+      type: string
+      ui:widget: file
+outputs_def:
+  - handle: latexString
+    json_schema:
+      type: string
+title: Image To Latex
+icon: ":fa6-solid:florin-sign:"

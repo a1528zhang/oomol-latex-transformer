@@ -1,0 +1,16 @@
+version: 0.0.1
+scripts:
+  # Script executed when the container is first loaded
+  # eg: bootstrap: pip install pandas
+  bootstrap: |
+    npm install
+    pip install -r requirements.txt
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+    apt-get update
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3-opencv
+dependencies:
+  {}
+icon: ./icon.png
+name: latex-ransformer
+description: Parse & calculate formular use latex
+displayName: Latex Transformer
