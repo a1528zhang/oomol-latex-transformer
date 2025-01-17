@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 scripts:
   # Script executed when the container is first loaded
   # eg: bootstrap: pip install pandas
@@ -15,3 +15,4 @@ name: latex-transformer
 description: Parse & calculate formular use latex
 displayName: Latex Transformer
 repository: https://github.com/a1528zhang/oomol-latex-transformer
+releaseNotes: add lib antlr4-python3-runtime
