@@ -29,3 +29,6 @@ outputs_def:
       contentMediaType: oomol/var
 title: Calculate Expression
 icon: ":fa6-solid:calculator:"
+description: |-
+  calculate expression object
+  计算表达式对象

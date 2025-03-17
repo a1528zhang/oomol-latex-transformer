@@ -12,4 +12,6 @@ outputs_def:
       type: string
 icon: ":fa6-solid:image:"
 title: Latex To Image
-description: output in svg, download preview and save as svg get the pic.
+description: |-
+  output latex as svg image
+  将 latex 转换为svg 图片

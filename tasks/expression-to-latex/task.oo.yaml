@@ -12,3 +12,6 @@ outputs_def:
       type: string
 title: Expression To Latex
 icon: ":fa6-solid:florin-sign:"
+description: |-
+  output expression object as latex string
+  将表达式对象转换为 latex 文本

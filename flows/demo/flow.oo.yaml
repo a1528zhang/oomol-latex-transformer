@@ -9,7 +9,9 @@ nodes:
         from_node:
           - node_id: image-to-latex#1
             output_handle: latexString
-    description: output as svg image
+    description: |-
+      output as svg image
+      输出图片为 svg 格式
   - task: self::image-to-latex
     title: "Image To Latex #1"
     node_id: image-to-latex#1
@@ -42,7 +44,9 @@ nodes:
     node_id: +javascript#1
     inputs_from:
       - handle: inputImage
-        value: /oomol-driver/oomol-storage/f5.png
+    description: |-
+      chosse a image of formular
+      选择一张公式图片
   - task: self::latex-to-expression
     title: "Latex To Expression #1"
     node_id: latex-to-expression#1

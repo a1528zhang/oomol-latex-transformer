@@ -13,3 +13,6 @@ outputs_def:
       type: string
 title: Image To Latex
 icon: ":fa6-solid:florin-sign:"
+description: |-
+  output formular image as latex
+  将公式的图片转换为 latex

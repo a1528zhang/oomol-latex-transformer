@@ -12,3 +12,6 @@ outputs_def:
       contentMediaType: oomol/var
 icon: ":fa6-solid:florin-sign:"
 title: Latex To Expression
+description: |-
+  output latext as expression object
+  将 latext 输出为表达式对象
