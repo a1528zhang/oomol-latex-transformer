@@ -67,7 +67,7 @@ nodes:
         value: derivatives
       - handle: params
         value:
-          - x
+          []
   - task: self::expression-to-latex
     title: "Expression To Latex #1"
     node_id: expression-to-latex#1
